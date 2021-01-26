@@ -1,9 +1,8 @@
 import React from 'react'
+import { AppRouter } from './routers/AppRouter';
 
 export const TodoApp = () => {
   return (
-    <div>
-      <h1>Todo App</h1>
-    </div>
+    <AppRouter />
   )
 }
