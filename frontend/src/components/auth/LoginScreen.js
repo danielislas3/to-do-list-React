@@ -1,14 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { api } from '../../utils/Api'
-import { Link, Redirect } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { useForm } from '../../hooks/useForm'
+import { UserContext } from '../../helpers/UserContext'
 
 export const LoginScreen = () => {
+
+  const { user, dispatchUser } = useContext(UserContext)
 
   const [formValues, handleInputChange] = useForm({
     email: '',
     password: ''
   })
+  let history = useHistory();
 
   const { email, password } = formValues
 
@@ -16,11 +20,16 @@ export const LoginScreen = () => {
     e.preventDefault()
     const log = await api.login({ email, password })
     console.log(log.status);
-    return log.status === 200 ? <Redirect to={{
-      pathname: "/"
-    }
-    } /> : sendError(log.message)
+    if (log.status == 200) {
+      dispatchUser({
+        type: 'login',
+        payload: log.data.user,
+      });
+      history.push("/dashboard");
 
+    } else {
+      sendError(log.message)
+    }
   }
 
   const sendError = (e) => {

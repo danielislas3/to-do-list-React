@@ -15,10 +15,16 @@ exports.signup = async (req, res, next) => {
 }
 
 exports.login = async (req, res, next) => {
-  console.log('LOGGGG');
-  const { _id } = req.user
-  const user = await User.findById(_id).populate('Task')
-  res.status(200).json({ user })
+  try {
+    
+    const { _id } = req.user
+    console.log('LOG',req.user);
+    const user = await User.findById(_id).populate('Task')
+    res.status(200).json({ user })
+  } catch (err) {
+    res.status(500).json({err,message:'Usuario o contraseña incorrecto'})
+  }
+ 
 }
 
 exports.logout = (req, res, nex) => {

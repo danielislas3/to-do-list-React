@@ -20,17 +20,17 @@ class Api {
   }
 
   async createTask(payload) {
-    return await this.axios.post("/task/create", payload);
+    return await this.axios.post("/task/create", payload,this.axiosConfig);
   }
   async getAllTasks() {
-    return await this.axios.get("/tasks");
+    return await this.axios.get("/tasks", this.axiosConfig);
   }
 
   async completeTask(id) {
-    return await this.axios.put("/task/completed/" + id,);
+    return await this.axios.put("/task/completed/" + id, this.axiosConfig);
   }
   async deleteTask(id) {
-    return await this.axios.delete("/task/delete/" + id,);
+    return await this.axios.delete("/task/delete/" + id, this.axiosConfig);
   }
 
 }

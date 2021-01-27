@@ -1,37 +1,68 @@
-import React from 'react';
+import React, { useEffect, useReducer } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Redirect
-} from 'react-router-dom'; 
-
+} from 'react-router-dom';
 import { AuthRouter } from './AuthRouter';
 import { TodoScreen } from '../components/todo/TodoScreen';
+import { taskReducer } from '../helpers/taskReducer';
+import { userReducer } from '../helpers/userReducer';
+import { TaskContext } from '../helpers/TaskContext';
+import { UserContext } from '../helpers/UserContext';
 
 
 export const AppRouter = () => {
+
+
+
+  const [tasks, dispatch] = useReducer(taskReducer, []);
+  const [user, dispatchUser] = useReducer(userReducer, []);
+
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }, [tasks]);
+
+  const contextTasks = {
+    tasks,
+    dispatch,
+  };
+
+  const contextUser = {
+    user,
+    dispatchUser,
+  };
+
   return (
-    <Router>
-      <div>
-        <Switch>
-          <Route
-            path="/auth"
-            component={AuthRouter}
-          />
+    <TaskContext.Provider value={contextTasks}>
+      <UserContext.Provider value={contextUser}>
 
-          <Route
-            exact
-            path="/"
-            component={TodoScreen}
-          />
+        <Router>
+          <div>
+            <Switch>
+              <Route
+                path="/auth"
+                component={AuthRouter}
+              />
 
-          <Redirect to="/auth/login" />
+              <Route
+                exact
+                path="/dashboard"
+                render={() => {
+                  return user._id ? <TodoScreen /> : <AuthRouter />
+                }}
+
+              />
+
+              <Redirect to="/auth/login" />
 
 
-        </Switch>
-      </div>
-    </Router>
+            </Switch>
+          </div>
+        </Router>
+      </UserContext.Provider>
+    </TaskContext.Provider>
 
   )
 }
