@@ -15,7 +15,7 @@ export const Sidebar = () => {
 
   useEffect(async () => {
     let res = await api.getAllTasks()
-    if (res.status == 200) {
+    if (res.status === 200) {
       const { tasks } = res.data
       console.log('tasks');
       console.log(tasks);

@@ -6,7 +6,7 @@ import { UserContext } from '../../helpers/UserContext'
 
 export const LoginScreen = () => {
 
-  const { user, dispatchUser } = useContext(UserContext)
+  const {  dispatchUser } = useContext(UserContext)
 
   const [formValues, handleInputChange] = useForm({
     email: '',
@@ -20,7 +20,7 @@ export const LoginScreen = () => {
     e.preventDefault()
     const log = await api.login({ email, password })
     console.log(log.status);
-    if (log.status == 200) {
+    if (log.status === 200) {
       dispatchUser({
         type: 'login',
         payload: log.data.user,

@@ -9,7 +9,7 @@ export const TodoEntries = ({tasks}) => {
       <div className="todo__entries">
         {
         tasks.map(e => (
-          <TodoEntry key={e} task={e} user={user}/>
+          <TodoEntry key={e._id} task={e} user={user}/>
           ))
         }
       </div>

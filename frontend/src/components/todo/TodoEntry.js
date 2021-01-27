@@ -7,12 +7,12 @@ export const TodoEntry = ({ task, user }) => {
   const { tasks, dispatchTasks } = useContext(TaskContext)
 
   const handleDelete = async taskId => {
-   await api.deleteTask(taskId)
-    const action = {
+    await api.deleteTask(taskId)
+
+    dispatchTasks({
       type: 'delete',
       payload: taskId,
-    };
-    dispatchTasks(action);
+    });
   };
   return (
     <div className="todo__entry">
@@ -31,7 +31,7 @@ export const TodoEntry = ({ task, user }) => {
       <div className="todo__entry-date-box">
         <span>Jueves </span>
         <p>15</p>
-        {user._id === task.author && <i class="far fa-trash-alt pointer " onClick={() => {
+        {user._id === task.author && <i className="far fa-trash-alt pointer " onClick={() => {
           handleDelete(task._id);
         }}></i>}
       </div>
