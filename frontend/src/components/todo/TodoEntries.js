@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { UserContext } from '../../helpers/UserContext'
 import { TodoEntry } from './TodoEntry'
 
-export const TodoEntries = () => {
-  const todos=[1,2,3,4,5,6]
+export const TodoEntries = ({tasks}) => {
+  const { user, dispatchUser } = useContext(UserContext)
+  
   return (
       <div className="todo__entries">
         {
-          todos.map(e => (
-            <TodoEntry key={e} enty={e}/>
+        tasks.map(e => (
+          <TodoEntry key={e} task={e} user={user}/>
           ))
         }
       </div>

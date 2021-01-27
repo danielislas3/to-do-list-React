@@ -17,16 +17,13 @@ export const AppRouter = () => {
 
 
 
-  const [tasks, dispatch] = useReducer(taskReducer, []);
+  const [tasks, dispatchTasks] = useReducer(taskReducer, []);
   const [user, dispatchUser] = useReducer(userReducer, []);
 
-  useEffect(() => {
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-  }, [tasks]);
 
   const contextTasks = {
     tasks,
-    dispatch,
+    dispatchTasks,
   };
 
   const contextUser = {
