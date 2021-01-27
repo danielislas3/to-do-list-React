@@ -27,7 +27,7 @@ class Api {
   }
 
   async completeTask(id) {
-    return await this.axios.put("/task/completed/" + id, this.axiosConfig);
+    return await this.axios.put("/tasks/completed/" + id, this.axiosConfig);
   }
   async deleteTask(id) {
     return await this.axios.delete("/tasks/delete/" + id, this.axiosConfig);

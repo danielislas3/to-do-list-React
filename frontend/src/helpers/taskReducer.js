@@ -15,9 +15,11 @@ export const taskReducer = (state = [], action) => {
 
       return state.filter(task => task._id !== action.payload);
 
-    case 'add':
-      return state.map(task =>
-        task.id === action.payload ? { ...task, done: true } : task
+    case 'complete':
+      console.log('PARLOAD');
+      console.log(action.payload);
+       return state.map(task =>
+         task._id === action.payload ? { ...task, completed: true } : task
       );
 
 

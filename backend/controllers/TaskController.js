@@ -30,11 +30,15 @@ exports.getAllTasks = async (req, res, next) => {
 }
 exports.setCompleted = async (req, res, next) => {
   const { id } = req.params
+  console.log('ID');
+  console.log(id);
   try {
-    const tasks = await Task.findOneAndUpdate(id, { completed: true }, { new: true })
+    const task = await Task.findByIdAndUpdate(id, { completed: true }, { new: true })
+    task.save()
+    console.log('completada');
+    console.log(task);
 
-
-    res.status(200).json({ tasks })
+    res.status(200).json({ task })
   } catch (error) {
     console.log('Error', error);
     res.status(500).json(error)

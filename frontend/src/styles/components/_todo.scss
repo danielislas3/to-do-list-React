@@ -85,3 +85,8 @@
 .todo__entry-date-box span {
     font-size: 12px;
 }
+.todo_delete-box{
+    display: flex;
+    justify-content: space-between;
+    width: 60px;
+}

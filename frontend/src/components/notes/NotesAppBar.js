@@ -3,7 +3,7 @@ import { TaskContext } from '../../helpers/TaskContext'
 import { api } from '../../utils/Api'
 
 export const NotesAppBar = ({ form }) => {
-  const { tasks, dispatchTasks } = useContext(TaskContext)
+  const { dispatchTasks } = useContext(TaskContext)
 
   const handleCreate = async () => {
     console.log('asdasd');
