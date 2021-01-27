@@ -9,7 +9,7 @@ export const TodoEntry = ({ entry }) => {
       </div>
       <div className="todo__entry-body">
         <p className="todo__entry-title">Titulo</p>
-        <p className="todo__entry-content ">description</p>
+        <p className="todo__entry-content ">descripcion</p>
 
       </div>
       <div className="todo__entry-date-box">

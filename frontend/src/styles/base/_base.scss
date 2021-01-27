@@ -45,3 +45,16 @@ main {
 .pointer {
   cursor: pointer;
 }
+.nothing {
+  align-items: center;
+  background-color: $primary;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  font-size: 30px;
+  p {
+    text-align: center;
+  }
+}

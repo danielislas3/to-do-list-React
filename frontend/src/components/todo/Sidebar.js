@@ -12,7 +12,7 @@ export const Sidebar = () => {
       </div>
       <div className="todo__new-entry">
         <i className="far fa-calendar-plus fa-5x"></i>
-        <p className="mt-5">New entry</p>
+        <p className="mt-5">Nueva tarea</p>
       </div>
       <TodoEntries/>
     </aside>
