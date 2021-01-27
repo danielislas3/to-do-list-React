@@ -1,9 +1,16 @@
 import React from 'react'
+import { Sidebar } from './Sidebar'
 
 export const TodoScreen = () => {
   return (
-    <div>
-      <h1>TodoScreen</h1>
+    <div className="todo__main-content">
+
+      <Sidebar />
+      <main>
+
+        <h1>TodoScreen</h1>
+      </main>
+
     </div>
   )
 }

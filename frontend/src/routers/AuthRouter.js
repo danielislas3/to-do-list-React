@@ -8,20 +8,24 @@ import {
 } from "react-router-dom";
 export const AuthRouter = () => {
   return (
-  
-      <Switch>
-        <Route
-          exact
-          path="/auth/login"
-          component={LoginScreen} />
-        <Route
-          exact
-          path="/auth/signup"
-          component={SignupScreen} />
+    <div className="auth__main">
+      <div className="auth__box-container">
 
-        <Redirect to="/auth/login" />
-      </Switch>
+        <Switch>
+          <Route
+            exact
+            path="/auth/login"
+            component={LoginScreen} />
+          <Route
+            exact
+            path="/auth/signup"
+            component={SignupScreen} />
 
- 
+          <Redirect to="/auth/login" />
+        </Switch>
+
+      </div>
+    </div>
+
   )
 }
