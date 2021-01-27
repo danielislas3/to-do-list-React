@@ -4,8 +4,8 @@ export const TodoEntry = ({ entry }) => {
   return (
     <div className="todo__entry">
       <div className="todo__entry-picture">
-        <i class="fas fa-check-square fa-5x"></i>
-        <i class="fas fa-spinner"></i>
+        <i className="fas fa-check-square fa-5x"></i>
+        <i className="fas fa-spinner"></i>
       </div>
       <div className="todo__entry-body">
         <p className="todo__entry-title">Titulo</p>

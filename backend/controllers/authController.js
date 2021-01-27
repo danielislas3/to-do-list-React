@@ -15,6 +15,7 @@ exports.signup = async (req, res, next) => {
 }
 
 exports.login = async (req, res, next) => {
+  console.log('LOGGGG');
   const { _id } = req.user
   const user = await User.findById(_id).populate('Task')
   res.status(200).json({ user })

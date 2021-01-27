@@ -19,7 +19,12 @@ mongoose
 
 var app = express();
 
-
+app.use(
+  cors({
+    credentials: true,
+    origin: [process.env.FRONT_URL]
+  })
+);
 
 app.use(logger('dev'));
 app.use(express.json());
