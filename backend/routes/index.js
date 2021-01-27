@@ -8,7 +8,7 @@ router.post('/login', passport.authenticate('local'), login)
 router.get('/logout', logout)
 
 router.post('/task/create', createTast)
-router.post('/tasks', getAllTasks)
+router.get('/tasks', getAllTasks)
 router.put('/tasks/completed/:id', setCompleted)
 router.delete('/tasks/delete/:id', deleteTask)
 
