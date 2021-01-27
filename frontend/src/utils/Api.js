@@ -14,6 +14,10 @@ class Api {
     }
   }
 
+  async signup(payload) {
+
+    return await this.axios.post("/signup", payload, this.axiosConfig);
+  }
   async login(payload) {
 
     return await this.axios.post("/login", payload, this.axiosConfig);

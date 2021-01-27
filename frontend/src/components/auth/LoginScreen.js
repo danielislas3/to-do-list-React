@@ -6,7 +6,7 @@ import { UserContext } from '../../helpers/UserContext'
 
 export const LoginScreen = () => {
 
-  const {  dispatchUser } = useContext(UserContext)
+  const { dispatchUser } = useContext(UserContext)
 
   const [formValues, handleInputChange] = useForm({
     email: '',
@@ -41,6 +41,7 @@ export const LoginScreen = () => {
 
       <form onSubmit={handleLogin}>
         <input className="auth__input"
+          required
           type="text"
           autoComplete="off"
           placeholder="email"
@@ -49,6 +50,7 @@ export const LoginScreen = () => {
           onChange={handleInputChange} />
 
         <input className="auth__input mb-1"
+          required
           type="password"
           autoComplete="off"
           placeholder="password"
